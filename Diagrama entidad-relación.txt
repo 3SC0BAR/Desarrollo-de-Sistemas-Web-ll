@@ -1,0 +1,43 @@
+mxGraphModel dx=1050 dy=600 grid=1 gridSize=10 guides=1 tooltips=1 connect=1 arrows=1 fold=1 page=1 pageScale=1 pageWidth=850 pageHeight=1100 math=0 shadow=0
+  root
+    mxCell id=0 
+    mxCell id=1 parent=0 
+    
+    mxCell id=marcas value=&lt;b&gt;Marcas&lt;b&gt;&lt;br&gt;&lt;hr&gt;PK - Id (Identity)&lt;br&gt;Descripcion style=shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=1;fontFamily=Helvetica;fontSize=12;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf; vertex=1 parent=1
+      mxGeometry x=40 y=60 width=160 height=80 as=geometry 
+    mxCell
+
+    mxCell id=categorias value=&lt;b&gt;Categorias&lt;b&gt;&lt;br&gt;&lt;hr&gt;PK - Id (Identity)&lt;br&gt;Descripcion style=shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=1;fontFamily=Helvetica;fontSize=12;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf; vertex=1 parent=1
+      mxGeometry x=40 y=240 width=160 height=80 as=geometry 
+    mxCell
+
+    mxCell id=productos value=&lt;b&gt;ProductosCarrito&lt;b&gt;&lt;br&gt;&lt;hr&gt;PK - Id (Identity)&lt;br&gt;Descripcion&lt;br&gt;Precio&lt;br&gt;Cantidad&lt;br&gt;FK - idCategoria&lt;br&gt;FK - idMarca style=shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=1;fontFamily=Helvetica;fontSize=12;align=center;fillColor=#d5e8d4;strokeColor=#82b366; vertex=1 parent=1
+      mxGeometry x=320 y=130 width=180 height=140 as=geometry 
+    mxCell
+
+    mxCell id=carrito value=&lt;b&gt;Carrito&lt;b&gt;&lt;br&gt;&lt;hr&gt;PK - Id (Identity)&lt;br&gt;FolioVenta (Unique)&lt;br&gt;TotalCompra&lt;br&gt;Estatus&lt;br&gt;Fecha style=shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=1;fontFamily=Helvetica;fontSize=12;align=center;fillColor=#ffe6cc;strokeColor=#d79b00; vertex=1 parent=1
+      mxGeometry x=640 y=340 width=160 height=120 as=geometry 
+    mxCell
+
+    mxCell id=detalle value=&lt;b&gt;CarritoDetalle&lt;b&gt;&lt;br&gt;&lt;hr&gt;PK - Id (Identity)&lt;br&gt;FK - IdCarrito&lt;br&gt;FK - IdProducto&lt;br&gt;Cantidad&lt;br&gt;Subtotal style=shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=1;fontFamily=Helvetica;fontSize=12;align=center;fillColor=#f8cecc;strokeColor=#b85450; vertex=1 parent=1
+      mxGeometry x=330 y=340 width=160 height=120 as=geometry 
+    mxCell
+
+    mxCell id=rel1 value=1  N style=edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;startArrow=ERone;html=1;jettySize=auto;orthogonalLoop=1;fontFamily=Helvetica;fontSize=11; edge=1 source=marcas target=productos parent=1
+      mxGeometry relative=1 as=geometry 
+    mxCell
+
+    mxCell id=rel2 value=1  N style=edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;startArrow=ERone;html=1;jettySize=auto;orthogonalLoop=1;fontFamily=Helvetica;fontSize=11; edge=1 source=categorias target=productos parent=1
+      mxGeometry relative=1 as=geometry 
+    mxCell
+
+    mxCell id=rel3 value=1  N style=edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;startArrow=ERone;html=1;jettySize=auto;orthogonalLoop=1;fontFamily=Helvetica;fontSize=11; edge=1 source=productos target=detalle parent=1
+      mxGeometry relative=1 as=geometry 
+    mxCell
+
+    mxCell id=rel4 value=1  N style=edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;startArrow=ERone;html=1;jettySize=auto;orthogonalLoop=1;fontFamily=Helvetica;fontSize=11; edge=1 source=carrito target=detalle parent=1
+      mxGeometry relative=1 as=geometry 
+    mxCell
+
+  root
+mxGraphModel
