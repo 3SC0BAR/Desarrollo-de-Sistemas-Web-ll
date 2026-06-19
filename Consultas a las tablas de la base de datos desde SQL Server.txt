@@ -1,0 +1,39 @@
+-- Consulta 1: Productos con sus marcas y sus categorías correspondiente
+SELECT 
+    P.Id AS [ID Producto],
+    P.Descripcion AS [Producto],
+    P.Precio,
+    C.Descripcion AS [Categoría],
+    M.Descripcion AS [Marca]
+FROM ProductosCarrito P
+INNER JOIN Categorias C ON P.idCategoria = C.Id
+INNER JOIN Marcas M ON P.idMarca = M.Id;
+
+-- Consulta 2: Carritos con sus carritos detalle y sus productos involucrados
+SELECT 
+    C.FolioVenta AS [Folio],
+    C.Fecha,
+    C.Estatus,
+    D.Cantidad AS [Cantidad Solicitada],
+    P.Descripcion AS [Producto],
+    D.Subtotal
+FROM Carrito C
+INNER JOIN CarritoDetalle D ON C.Id = D.IdCarrito
+INNER JOIN ProductosCarrito P ON D.IdProducto = P.Id;
+
+-- Consulta 3: Consulta total (Carritos + Detalles + Productos + Marcas + Categorías)
+SELECT 
+    C.FolioVenta AS [Folio Transacción],
+    C.Estatus AS [Estado Carrito],
+    P.Descripcion AS [Nombre Artículo],
+    M.Descripcion AS [Marca Fabricante],
+    CAT.Descripcion AS [Categoría Línea],
+    D.Cantidad AS [Unidades],
+    P.Precio AS [Precio Unitario],
+    D.Subtotal AS [Subtotal Fila],
+    C.TotalCompra AS [Gran Total Carrito]
+FROM Carrito C
+INNER JOIN CarritoDetalle D ON C.Id = D.IdCarrito
+INNER JOIN ProductosCarrito P ON D.IdProducto = P.Id
+INNER JOIN Marcas M ON P.idMarca = M.Id
+INNER JOIN Categorias CAT ON P.idCategoria = CAT.Id;
